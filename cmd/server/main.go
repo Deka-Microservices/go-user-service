@@ -5,6 +5,7 @@ import (
 	"github.com/deka-microservices/go-user-service/internal/consts"
 	"github.com/deka-microservices/go-user-service/internal/database"
 	"github.com/deka-microservices/go-user-service/internal/database/query"
+	"github.com/deka-microservices/go-user-service/internal/routes"
 
 	"github.com/gin-contrib/logger"
 	"github.com/gin-gonic/gin"
@@ -20,6 +21,8 @@ func main() {
 	db := database.NewUserDB()
 	database.Migrate(db)
 	query.SetDefault(db)
+
+	e.GET("/ping", routes.Ping)
 
 	address := viper.GetString(consts.CONFIG_IP) + ":" + viper.GetString(consts.CONFIG_PORT)
 	e.Run(address)

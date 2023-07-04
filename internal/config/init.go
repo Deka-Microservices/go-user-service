@@ -20,6 +20,7 @@ func init() {
 	viper.SetDefault(consts.CONFIG_PORT, 8080)
 	viper.SetDefault(consts.CONFIG_IP, "0.0.0.0")
 	viper.SetDefault(consts.CONFIG_DSN, "")
+	viper.SetDefault(consts.CONFIG_BCRYPT_SERVER_ADDRESS, "localhost:9000")
 
 	viper.SetConfigName("config")
 	viper.AddConfigPath(".")
