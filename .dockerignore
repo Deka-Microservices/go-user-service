@@ -1,0 +1,6 @@
+.git*
+*[D|d]ocker*
+*.proto
+
+!go.mod
+!go.sum
