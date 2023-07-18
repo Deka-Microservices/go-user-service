@@ -2,9 +2,11 @@ FROM golang:1.20 AS builder
 
 WORKDIR /build
 
+ARG VERSION=dev
+
 COPY . .
 RUN go mod download
-RUN go build -o ./server cmd/server/main.go 
+RUN go build -ldflags="-X 'main.Version=${VERSION}'" -o ./server cmd/server/main.go 
 
 FROM ubuntu:latest
 WORKDIR /app 

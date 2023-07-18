@@ -14,10 +14,14 @@ import (
 	"github.com/spf13/viper"
 )
 
+var Version = "dev"
+
 func main() {
 	e := gin.New()
 	e.Use(logger.SetLogger())
 	e.Use(gin.Recovery())
+
+	log.Info().Str("version", Version).Msg("current version")
 
 	// Prepare JWT
 	jwtMiddleware, err := jwt.GetJWTMiddleware()
