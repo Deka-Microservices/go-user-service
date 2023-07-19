@@ -24,6 +24,7 @@ func init() {
 
 	viper.SetConfigName("config")
 	viper.AddConfigPath(".")
+	viper.AddConfigPath("/etc/go-user-service")
 
 	err := viper.ReadInConfig()
 	if err != nil {
